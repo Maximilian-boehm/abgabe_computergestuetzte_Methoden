@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+\title{Abgabe 1 für Computergestützte Methoden}
+
+\author{Gruppe 66: Maximilian Böhm 4348421, Benjamin Gün 4344725,
+Aleksandra Virts 4244999}
+\date{01.12.2024}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+
+\newpage
+\section{Der zentrale Grenzwertsatz}
+Der zentrale Grenzwertsatz (ZGS) ist ein fundamentales Resultat der Wahrscheinlichkeitstheorie, das die Verteilung von Summen unabhängiger, identisch verteilter (\textit{i.i.d}.) Zufallsvariablen (ZV) beschreibt. Er besagt, dass unter bestimmten Voraussetzungen die Summe einer großen Anzahl solcher ZV annähernd normalverteilt ist,  unabhängig von der Verteilung der einzelnen ZV. Dies ist besonders nützlich, da die Normalverteilung gut untersucht und mathematisch handhabbar ist.
+
+\subsection{Aussage}
+
+Sei \( X_1, X_2, \dots, X_n \) eine Folge von i.i.d. Zufallsvariablen mit dem Erwartungswert \(\mu = \mathbb{E}(X_i)\) und der Varianz \(\sigma^2 = \text{Var}(X_i)\), wobei \( 0 < \sigma^2 < \infty \) gelte. Dann konvergiert die standardisierte Summe \( Z_n \) dieser Zufallsvariablen für \( n \to \infty \) in Verteilung gegen eine Standardnormalverteilung\footnote{Der zentrale Grenzwertsatz hat verschiedene Verallgemeinerungen. Eine davon ist der Lindeberg-Feller-Zentrale-Grenzwertsatz [1, Seite 328], der schwächere Bedingungen an die Unabängigkeit und die identische Verteilung der ZV stellt.}:
+
+\begin{equation}
+\label{ZGS:Grenzwert_Funktion}
+Z_n = \frac{\sum_{i=1}^n X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1).
+\end{equation}
+Das bedeutet, dass für große \( n \) die Summe der Zufallsvariablen näherungsweise normalverteilt ist mit 
+Erwartungswert \( n\mu \) und Varianz \( n\sigma^2 \):
+\begin{equation}
+\label{E:Erwartungswert_Funktion}
+\sum_{i=1}^n X_i \sim \mathcal{N}(n\mu, n\sigma^2).
+\end{equation}
+
+\subsection{Erklärung der Standardisierung}
+
+Um die Summe der Zufallsvariablen in eine Standardnormalverteilung zu transformieren, subtrahiert man den Erwartungswert \( n\mu \) und teilt durch die Standardabweichung \( \sigma\sqrt{n} \). 
+Dies führt zu der obigen Formel \eqref{ZGS:Grenzwert_Funktion}. Die Darstellung \eqref{E:Erwartungswert_Funktion} ist für \( n \to \infty \) nicht wohldefiniert.
+
+\subsection{Anwendungen}
+
+Der zentrale Grenzwertsatz (ZGS) wird in vielen Bereichen der Statistik und der Wahrscheinlichkeitstheorie angewendet. 
+Typische Beispiele sind:
+\begin{itemize}
+    
+    \item Monte-Carlo-Simulation: Die Monte Carlo Simulation beschreibt die Wahrscheinlichkeit verschiedener zufälliger Ereignisse.
+    \item Hypothesentest: Der Hypothesentest, beschreibt das nachweisen einer Hypothese, durch heranziehung einer Stichprobe.
+\end{itemize}
+
+
+\newpage
+\section{Bearbeitung zur Aufgabe 1}
+\subsection{Berechnung der höchsten mittleren Temperatur}
+
+Um die höchste mittlere Temperatur zu berechnen, müssen als erstes die Daten des Datensatzes kopiert werden.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Bild 26.11.24 um 10.54.jpg}
+    \caption{Datensatz des Fahrradverleihs}
+    \label{fig:enter-label}
+    \end{figure}
+
+\noindent Nachdem die Daten als CSV Datei kopiert wurden, müssen diese nun in Excel im Tab Daten, im Unterpunkt "Daten abrufen", abgerufen werden. Nun kann eine Excel-Tabelle erstellt werden,die durch die vorhandenen Kommata, welche als Trennzeichen dienen,in Spalten getrennt wird.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Bild 26.11.24 um 11.03.JPEG}
+    \caption{Trennzeichenfestlegung}
+    \label{fig:enter-label}
+\end{figure}
+
+\noindent Infolgedessen kann die Tabelle in Excel bearbeitet werden.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Bild 26.11.24 um 11.04.JPEG}
+    \caption{Excel Tabelle}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\noindent Da die Tabelle jedoch alle Gruppen beinhaltet, muss in dieser, jede Gruppe welche nicht unsere ist, herausgefiltert werden. Das wird durch die Filterfunktion ermöglicht, bei welcher die eigene Gruppe ausgewählt werden kann, um nur die Daten dieser zu sehen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Bild 26.11.24 um 11.08.JPEG}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\noindent Nun werden die Werte der Spalte average\_temperature absteigend sortiert und man erhält als obersten und somit auch höchsten Wert 83 Grad Fahrenheit, was umgerechnet 28,33 Grad Celsius entspricht.
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.1\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Bild 26.11.24 um 11.09 3.JPEG}
+      \caption{Spalte}
+    \end{subfigure}
+    \hspace{0.25\textwidth}
+    \begin{subfigure}{0.2\textwidth} 
+      \centering
+      \includegraphics[width=\textwidth]{Bild 26.11.24 um 11.09.JPEG}
+      \caption{\parbox{1.8\linewidth}{Sortierfunktion}}
+    \end{subfigure}
+\end{figure}
+
+\newpage
+\subsection{Datenbank Schema}
+
+Die 1. Normalform wurde so gewählt, da alle Werte atomar sind, was bedeutet, dass jeder Wert in der Tabelle eine eindeutige Zuordnung hat und keine Mehrfachwerte oder Wiederholungen in einer Zelle existieren.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Bild 28.11.24 um 14.21.JPEG}
+    \caption{1. Normalform}
+    \label{fig:enter-label}
+\end{figure}
+
+\noindent Die 2. Normalform kann nur gebildet werden, wenn die 1. Normalform bereits vorliegt. Eine weitere Bedingung für die 2. Normalform ist, dass Attribute, welche keine Schlüsselattribute sind, vollständig von Schlüsselattributen abhängig sind, dadurch gibt es keinerlei partielle Abhängigkeiten mehr.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Bild 28.11.24 um 14.55.JPEG}
+    \caption{2. Normalform}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\subsection{Umsetzung in SQL und Import der Daten}
+Nachdem wir die 1. und 2. Normalform bestimmt haben, ist es für uns möglich diese in SQL zu übersetzen, hierfür benutzen wir die Website https://sqliteonline.com/.
+Nachdem man die Daten über die Importierfunktion eingefügt hat, kann man die Tabellen in SQL erstellen, mit dem Befehl Create Table wird es ermöglicht. Um die Spalten einer Tabelle zu bestimmen müssen diese, wie im nachfolgenden Bild unter dem obersten Befehl Create Table stehen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Screenshot (12).png}
+    \caption{1. Normalform}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\noindent Um die Tabelle der 2. Normalform zu erstellen, müssen "Foreign Keys" \ aktiviert sein, da ohne diese die in einer Tabelle neu hinzugefügten Spalten nicht ideal in neue Tabellen integriert werden können und die Beziehungen zwischen den Tabellen dadurch nicht klar sind. Die Spalten welche als "Foreign Keys" angegeben werden, müssen am Ende des Codes der erstellten Tabelle sein, da SQL sonst nicht in der Lage wäre, mit diesen neuen Werten ein gewünschtes Ergebnis zu erzielen.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Screenshot (13).png}
+    \caption{2.Normalform}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Bestimmung der höchsten mittleren Temperatur per SQL}
+Um nun aus den gegebenen Tabellen die höchste mittlere Temperatur zu bestimmen, muss ein Code geschrieben werden, der genau das abfragt. Um auf diesen Code zu kommen, muss als erstes bestimmt werden, welchen Wert man haben will. Dieser ist wie bereits bekannt der maximale Wert der Spalte average\_temperature, also muss dieser Wert mit dem code SELECT MAX(average\_temperature) ermitllelt werden. Dies reicht jedoch nicht aus, da ohne weitere Restriktionen, mit dieser Methode nur der höchste mittlere Temperaturwert aller Gruppen bestimmt worden wäre. Um dies zu verhindern, müssen nun die Restriktionen eingebaut werden. Es kann damit angefangen werden, ertsmal sicherzustellen, dass ein richtiger Wert am Ende der Abfrage herauskommt. Dies muss gemacht werden, da die Werte der average\_temperature Spalte teilweise 0 oder NA betragen. Damit diese Werte am Ende nicht als Ergebnis erscheinen schreibt man:„WHERE average\_temperature IS NOT NULL AND average\_temperature != 'NA'", und um schlussendlich noch ein Ergebnis der eigenen Gruppendaten zu kriegen, muss als weitere Restriktion noch:"„and "group" = 66", eingefügt werden.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Screenshot (11).png}
+    \caption{SQL-Abfrage}
+    \label{fig:enter-label}
+\end{figure}
+
+\section{Quellenverzeichnis}
+\subsection{Literaturverzeichnis}
+[1] Achim Klenke. \textit{Wahrscheinlichkeitstheorie}. Springer, 3 edition, 2013
+
+\subsection{Abbildungsverzeichnis}
+\listoffigures
+\end{document}
+
+
